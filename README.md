@@ -9,7 +9,7 @@ A Discord BOT can open your Minecraft Servers.
 
 1. Typing your Discord BOT Authorization Token into the file "config.json"'s discordToken
 2. Typing your Minecraft Servers' Information into "minecraftServerFolders" Like: 
-```js
+```json
 {
   "name": "Name of Server",
   "id": "this-is-id",
