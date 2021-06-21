@@ -1,4 +1,4 @@
-# discord-bot-open-minecraft-server
+# Discord BOT Open Minecraft Server
 A Discord BOT can open your Minecraft Servers.
 
 ## The Video
