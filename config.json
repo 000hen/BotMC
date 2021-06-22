@@ -1,0 +1,18 @@
+{
+    "discordToken": "<Your BOT Token Here>",
+    "botPrefix": "bot!mc",
+    "author": "3ZH-Studio Network",
+    "authorName": "Enolotem BOT",
+    "authorImg": "https://3zh-studio.com/serverimg/hlogo.png",
+    "authorSite": "https://www.3zh-studio.com/",
+    "idleTimeout": 1800000,                                              //this is when Minecraft Server is idling, Bot will shutdown the server.
+    "minecraftServerFolders": [
+        {
+            "name": "<Server Name>",
+            "id": "server-id",
+            "version": "<Server Version>",
+            "folder": "<Server Folder>",
+            "serverFileName": "Server Filename.jar"
+        }
+    ]
+}
