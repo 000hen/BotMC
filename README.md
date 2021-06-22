@@ -20,7 +20,7 @@ A Discord BOT can open your Minecraft Servers.
 }
 ```
 Here is the example:
-![Example1](https://cdn.discordapp.com/attachments/856528296091189308/856539203835789352/unknown.png)
+![Example1](https://cdn.discordapp.com/attachments/655638858784047105/857038433846296596/unknown.png)
 
 3. Run the BOT (`node main.js`).
 
