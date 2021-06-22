@@ -120,7 +120,7 @@ client.on("message", message => {
                 setTimeout(() => {
                     server.stdin.write("stop\n");
                     clearInterval(chkusronline);
-                }, 1000); //this is when Minecraft Server is idling, Bot will shutdown the server.
+                }, 1000); //If Minecraft Server is idling, Bot will shutdown the server.
                 
             };
             chkusr = false;
