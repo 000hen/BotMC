@@ -41,11 +41,11 @@ client.on("message", message => {
             .setAuthor(config.authorName, config.authorImg, config.authorSite)
             .setDescription('這是幫助頁面')
             .addFields(
-                { name: 'bot!mc', value: '是指令前輟!!' },
+                { name: config.botPrefix, value: '是指令前輟!!' },
                 { name: '\u200B', value: '\u200B' },
-                { name: 'bot!mc start (伺服器ID)', value: '啟動伺服器', inline: true },
-                { name: 'bot!mc stop (伺服器ID)', value: '關閉伺服器', inline: true },
-                { name: 'bot!mc list', value: '伺服器列表', inline: true }
+                { name: `${config.botPrefix} start (伺服器ID)`, value: '啟動伺服器', inline: true },
+                { name: `${config.botPrefix} stop (伺服器ID)`, value: '關閉伺服器', inline: true },
+                { name: `${config.botPrefix} list`, value: '伺服器列表', inline: true }
             )
             .setTimestamp()
             .setFooter(config.author, config.authorImg);
