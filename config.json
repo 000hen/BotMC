@@ -5,7 +5,7 @@
     "authorName": "Enolotem BOT",
     "authorImg": "https://3zh-studio.com/serverimg/hlogo.png",
     "authorSite": "https://www.3zh-studio.com/",
-    "idleTimeout": 1800000,                                              //this is when Minecraft Server is idling, Bot will shutdown the server.
+    "idleTimeout": 1800000
     "minecraftServerFolders": [
         {
             "name": "<Server Name>",
