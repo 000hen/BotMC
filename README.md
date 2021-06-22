@@ -14,6 +14,7 @@ A Discord BOT can open your Minecraft Servers.
 {
   "name": "Name of Server",
   "id": "this-is-id",
+  "version": "Version of Server",
   "folder": "/path/to/your/server/folder",
   "serverFileName": "server.jar"
 }
