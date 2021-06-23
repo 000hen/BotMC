@@ -8,7 +8,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const config = require("./config.json");
-const { spawn } = require("child_process");
+const { spawn, exec } = require("child_process");
 
 client.login(config.discordToken);
 
@@ -81,8 +81,9 @@ client.on("message", message => {
         }
 
         var serverinfo = config.minecraftServerFolders.find(e => e.id === serverId);
-        
-        servers.push({ id: serverId, server: (spawn(`java`, [`-jar`, `"${serverinfo.folder}/${serverinfo.serverFileName}"`, `nogui`], { cwd: serverinfo.folder })) });
+
+        //servers.push({ id: serverId, server: (spawn(`java`, [`-jar`, `"${serverinfo.folder}/${serverinfo.serverFileName}"`, `nogui`, { cwd: serverinfo.folder })) }); //==>This is not working for me.
+        servers.push({ id: serverId, server: (exec(`java -jar "${serverinfo.folder}/${serverinfo.serverFileName}" nogui`, { cwd: serverinfo.folder })) });
 
         var embed = new Discord.MessageEmbed()
             .setColor("#79de31")
@@ -123,6 +124,17 @@ client.on("message", message => {
                 }, 1000);
                 
             };
+            if (output.match(/\[[0-9]{2}:[0-9]{2}:[0-9]{2}\] \[Server thread\/INFO\]: Done \([0-9]*\.[0-9]*s\)! For help, type "help"/gm)) {
+                var embed = new Discord.MessageEmbed()
+                    .setColor("#79de31")
+                    .setTitle(`伺服器 ${serverinfo.name} 啟動成功`)
+                    .setURL(config.authorSite)
+                    .setAuthor(config.authorName, config.authorImg, config.authorSite)
+                    .setDescription(`現在你們可以進入 ${serverinfo.name} 暢玩了!`)
+                    .setTimestamp()
+                    .setFooter(config.author, config.authorImg);
+                message.channel.send(embed);
+            }
             chkusr = false;
         });
         server.on("close", () => {
