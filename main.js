@@ -107,7 +107,7 @@ client.on("message", message => {
               .setTimestamp()
               .setFooter(config.author, config.authorImg);
             message.channel.send(embed);
-            if (output.match(/\[\w*:\w*:\w*\] \[Server thread\/INFO\]: There are 0 of a max of 20 players online:\w*/gm)) {
+            if (output.match(/\[[0-9]{2}:[0-9]{2}:[0-9]{2}\] \[Server thread\/INFO\]: There are 0 of a max of [0-9]* players online:\w*/gm)) {
                 var embed = new Discord.MessageEmbed()
                     .setColor('#ff3b3b')
                     .setTitle(`伺服器 ${serverinfo.name} 關閉`)
