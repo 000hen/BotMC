@@ -25,3 +25,5 @@ Here is the example:
 3. Run the BOT (`node main.js`).
 
 ## Enjoy
+
+##### p.s. Minecraft Server 1.17+ needs Java version 16 (idk 12~15)
