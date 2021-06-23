@@ -26,4 +26,4 @@ Here is the example:
 
 ## Enjoy
 
- - p.s. Minecraft Server 1.17+ needs Java version 16 (idk 12~15)
+ - p.s. Minecraft Server 1.17+ needs Java version 16 (idk 15)
