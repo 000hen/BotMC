@@ -26,4 +26,4 @@ Here is the example:
 
 ## Enjoy
 
- - p.s. Minecraft Server 1.17+ needs Java version 16 (idk 15)
+ - p.s. All Minecraft version under MC 1.17 are run well in Java 8, but Minecraft 1.17 (I think they will make all version above MC 1.17 run in latest Java version) CANNOT run (even Java 14/15, so you need to change your Java version when you are running between the latest Minecraft and all versions under MC 1.17)
