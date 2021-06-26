@@ -1,6 +1,7 @@
 # Discord BOT Open Minecraft Server
 A Discord BOT can open your Minecraft Servers.
 
+
 ## The Video
 
 [It's on YouTube](https://www.youtube.com/watch?v=VAqaoz0ctFw)
@@ -26,4 +27,6 @@ Here is the example:
 
 ## Enjoy
 
- - p.s. All Minecraft version under MC 1.17 are run well in Java 8, but Minecraft 1.17 (I think they will make all version above MC 1.17 run in latest Java version) CANNOT run (even Java 14/15, so you need to change your Java version when you are running between the latest Minecraft and all versions under MC 1.17)
+ - p.s. All Minecraft version under MC 1.17 are run well in Java 8, but Minecraft 1.17 (I think they will make all version above MC 1.17 run in latest Java version) CANNOT run (even Java 14/15, so you need to change your Java version when you are running between the latest Minecraft and all versions under MC 1.17).
+ - p.p.s. All Minecraft versions can run well in latest Java version, but Forge (idk Bukkit, Paper, Fabric) cannot.
+ - p.p.p.s. This bot can run well in Windows, Ubuntu(Linux).
