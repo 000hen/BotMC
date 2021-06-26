@@ -9,6 +9,11 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const config = require("./config.json");
 const { spawn, exec } = require("child_process");
+const os = require("os");
+const path = require("path");
+const fs = require("fs");
+
+const platform = os.platform();
 
 client.login(config.discordToken);
 
@@ -81,9 +86,28 @@ client.on("message", message => {
         }
 
         var serverinfo = config.minecraftServerFolders.find(e => e.id === serverId);
+        
+        if (platform === "win32") {
+            var javaRuntime = `"${__dirname}/javas/win32/${(serverinfo.javaVersion || "8")}/bin/java.exe"`;
+        } else if (platform === "linux") {
+            var javaRuntime = `./"${__dirname}/javas/linux/${(serverinfo.javaVersion || "8")}/bin/java"`;
+        } else {
+            throw new Error("Unsupport your Operating System");
+        }
 
-        //servers.push({ id: serverId, server: (spawn(`java`, [`-jar`, `"${serverinfo.folder}/${serverinfo.serverFileName}"`, `nogui`, { cwd: serverinfo.folder })) }); //==>This is not working for me.
-        servers.push({ id: serverId, server: (exec(`java -jar "${serverinfo.folder}/${serverinfo.serverFileName}" nogui`, { cwd: serverinfo.folder })) });
+        try {
+            if (!fs.existsSync(javaRuntime)) { }
+        } catch (err) {
+            throw new Error("Hey! You need to download the Java Runtime into this project's folder.\nCheck this line's annotation.");
+            /*
+             * Runtime Download Url (391MB, Unzip: 746MB): https://www.mediafire.com/file/l3ebjfbk9c6won5/javas.zip/file
+             * (I use mediafire to storge because the zip is too big for Github).
+             * You just need unzip, and threw the folder (name "javas") into this project's root folder.
+             */
+        }
+
+        //servers.push({ id: serverId, server: (spawn(`"${javaRuntime}"`, [`-jar`, `"${serverinfo.folder}/${serverinfo.serverFileName}"`, `nogui`, { cwd: serverinfo.folder })) }); //==>This is not working for me.
+        servers.push({ id: serverId, server: (exec(`${javaRuntime} -jar "${serverinfo.folder}/${serverinfo.serverFileName}" nogui`, { cwd: serverinfo.folder })) });
 
         var embed = new Discord.MessageEmbed()
             .setColor("#79de31")
@@ -108,7 +132,7 @@ client.on("message", message => {
               .setTimestamp()
               .setFooter(config.author, config.authorImg);
             message.channel.send(embed);
-            if (output.match(/\[[0-9]{2}:[0-9]{2}:[0-9]{2}\] \[Server thread\/INFO\]: There are 0 of a max of [0-9]* players online:\w*/gm)) {
+            if (output.match(/\[[0-9]{2}:[0-9]{2}:[0-9]{2}\] \[Server thread\/INFO\]\w*: There are 0 of a max of [0-9]* players online:\w*/gm)) {
                 var embed = new Discord.MessageEmbed()
                     .setColor('#ff3b3b')
                     .setTitle(`伺服器 ${serverinfo.name} 關閉`)
@@ -124,7 +148,7 @@ client.on("message", message => {
                 }, 1000);
                 
             };
-            if (output.match(/\[[0-9]{2}:[0-9]{2}:[0-9]{2}\] \[Server thread\/INFO\]: Done \([0-9]*\.[0-9]*s\)! For help, type "help"/gm)) {
+            if (output.match(/\[[0-9]{2}:[0-9]{2}:[0-9]{2}\] \[Server thread\/INFO\]\w*: Done \([0-9]*\.[0-9]*s\)! For help, type "help"/gm)) {
                 var embed = new Discord.MessageEmbed()
                     .setColor("#79de31")
                     .setTitle(`伺服器 ${serverinfo.name} 啟動成功`)
