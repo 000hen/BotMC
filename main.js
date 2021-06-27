@@ -86,8 +86,12 @@ client.on("message", message => {
         }
 
         var serverinfo = config.minecraftServerFolders.find(e => e.id === serverId);
+
+        var javaRuntime = "java";
+
+        // I don't know why Java 16 Have some plobrem, so I make this line unworking.
         
-        if (platform === "win32") {
+        /*if (platform === "win32") {
             var javaRuntime = `"${__dirname}/javas/win32/${(serverinfo.javaVersion || "8")}/bin/java.exe"`;
         } else if (platform === "linux") {
             var javaRuntime = `./"${__dirname}/javas/linux/${(serverinfo.javaVersion || "8")}/bin/java"`;
@@ -100,12 +104,13 @@ client.on("message", message => {
         } catch (err) {
             javaRuntime = "java";
             console.warn("Hey! You need to download the Java Runtime into this project's folder, or we will run in local Java version.\n\nCheck this line's annotation.");
-            /*
-             * Runtime Download Url (391MB, Unzip: 746MB): https://www.mediafire.com/file/l3ebjfbk9c6won5/javas.zip/file
-             * (I use mediafire to storge because the zip is too big for Github).
-             * You just need unzip, and threw the folder (name "javas") into this project's root folder.
-             */
+            
+            // * Runtime Download Url (391MB, Unzip: 746MB): https://www.mediafire.com/file/l3ebjfbk9c6won5/javas.zip/file
+            // * (I use mediafire to storge because the zip is too big for Github).
+            // * You just need unzip, and threw the folder (name "javas") into this project's root folder.
+             
         }
+        */
 
         //servers.push({ id: serverId, server: (spawn(`"${javaRuntime}"`, [`-jar`, `"${serverinfo.folder}/${serverinfo.serverFileName}"`, `nogui`, { cwd: serverinfo.folder })) }); //==>This is not working for me.
         servers.push({ id: serverId, server: (exec(`${javaRuntime} -jar "${serverinfo.folder}/${serverinfo.serverFileName}" nogui`, { cwd: serverinfo.folder })) });
