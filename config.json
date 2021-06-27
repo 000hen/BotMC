@@ -11,6 +11,7 @@
             "name": "<Server Name>",
             "id": "server-id",
             "version": "<Server Version>",
+            "javaVersion": 16,
             "folder": "<Server Folder>",
             "serverFileName": "Server Filename.jar"
         }

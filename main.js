@@ -98,7 +98,8 @@ client.on("message", message => {
         try {
             if (!fs.existsSync(javaRuntime)) { }
         } catch (err) {
-            throw new Error("Hey! You need to download the Java Runtime into this project's folder.\nCheck this line's annotation.");
+            javaRuntime = "java";
+            console.warn("Hey! You need to download the Java Runtime into this project's folder, or we will run in local Java version.\n\nCheck this line's annotation.");
             /*
              * Runtime Download Url (391MB, Unzip: 746MB): https://www.mediafire.com/file/l3ebjfbk9c6won5/javas.zip/file
              * (I use mediafire to storge because the zip is too big for Github).
