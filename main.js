@@ -102,7 +102,7 @@ client.on("message", message => {
             javaRuntime = "java";
             console.warn("Hey! You need to download the Java Runtime into this project's folder, or we will run in local Java version.\n\nCheck this line's annotation.");
             
-            // * Runtime Download Url (391MB, Unzip: 746MB): https://dl.botmc.cf/javas.zip
+            // * Runtime Download Url (525MB, Unzip: 891MB, Include: Windows, Linux): https://dl.botmc.cf/javas.zip
             // * (I use mediafire to storge because the zip is too big for Github).
             // * You just need unzip, and threw the folder (name "javas") into this project's root folder.
              
