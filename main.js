@@ -92,7 +92,7 @@ client.on("message", message => {
         if (platform === "win32") {
             var javaRuntime = `"${__dirname}/javas/win32/${(serverinfo.javaVersion || "8")}/bin/java.exe"`;
         } else if (platform === "linux") {
-            var javaRuntime = `./"${__dirname}/javas/linux/${(serverinfo.javaVersion || "8")}/bin/java"`;
+            var javaRuntime = `"${__dirname}/javas/linux/${(serverinfo.javaVersion || "8")}/bin/java"`;
         } else {
             throw new Error("Unsupport your Operating System");
         }
@@ -164,6 +164,7 @@ client.on("message", message => {
             chkusr = false;
         });
         server.on("close", () => {
+            console.log(`If you cannot run the server, you can try "chmod 666 javas/*" on project's root folder in linux system.`);
             rmServer(serverId);
             var embed = new Discord.MessageEmbed()
                 .setColor("#79de31")
