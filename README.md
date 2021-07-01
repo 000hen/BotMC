@@ -24,7 +24,7 @@ A Discord BOT can open your Minecraft Servers.
 Here is the example:
 ![Example1](https://cdn.discordapp.com/attachments/655638858784047105/857038433846296596/unknown.png)
 
-3. Download the Java Runtime (`https://www.mediafire.com/file/l3ebjfbk9c6won5/javas.zip/file`) and unzip to the root folder.
+3. Download the Java Runtime (`https://dl.botmc.cf/javas.zip`) and unzip to the root folder.
 4. Run the BOT (`node main.js`).
 
 # Issue
