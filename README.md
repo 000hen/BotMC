@@ -1,4 +1,4 @@
-# Discord BOT Open Minecraft Server
+# BotMC
 
 A Discord BOT can open your Minecraft Servers.
 
