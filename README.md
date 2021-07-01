@@ -4,7 +4,17 @@ A Discord BOT can open your Minecraft Servers.
 
 ## The Video
 
-[It's on YouTube](https://www.youtube.com/watch?v=VAqaoz0ctFw)
+<https://www.youtube.com/watch?v=VAqaoz0ctFw>
+
+## Feature
+
+ - [x] You can use your Discord to open Minecraft Server.
+ - [x] Your friends also can open your Minecraft Server (Require in the same Discord Guild with the bot).
+ - [x] Auto shutdown when the server have nobody.
+ - [ ] Easy to Use.
+ - [x] Easy to connect to your Minecraft Server
+ - [ ] Easy to modify your Minecraft Server.
+ - [ ] Allow some roles/permissions (Discord) to open your Minecraft Server.
 
 ## How to use
 
@@ -16,7 +26,7 @@ A Discord BOT can open your Minecraft Servers.
   "name": "Name of Server",
   "id": "this-is-id",
   "version": "Version of Server",
-  "javaVersion": "16 //Optional, can be number or string",
+  "javaVersion": "16 //Optional, can be number or string, should be 16 or 8",
   "folder": "/path/to/your/server/folder",
   "serverFileName": "server.jar"
 }
@@ -24,12 +34,13 @@ A Discord BOT can open your Minecraft Servers.
 Here is the example:
 ![Example1](https://cdn.discordapp.com/attachments/655638858784047105/857038433846296596/unknown.png)
 
-3. Download the Java Runtime (`https://dl.botmc.cf/javas.zip`) and unzip to the root folder. (It will auto download when you run it.)
+3. ~~Download the Java Runtime (`https://dl.botmc.cf/javas.zip`) and unzip to the root folder.~~ (It will auto download when you run it.)
 4. Run the BOT (`node main.js`).
 
 # Issue
 
- - All Minecraft version under MC 1.17 are run well in Java 8, but Minecraft 1.17 (I think they will make all version above MC 1.17 run in latest Java version) CANNOT run (even Java 14/15, so you need to change your Java version when you are running between the latest Minecraft and all versions under MC 1.17).
+ - All Minecraft version under MC 1.17 are run well in Java 8, but Minecraft 1.17 (I think they will make all version above MC 1.17 run in latest Java version) CANNOT run (even Java 14/15, ~~so you need to change your Java version when you are running between the latest Minecraft and all versions under MC 1.17~~ I make the bot can change Java Runtime, but you need to change your `javaVersion` in config.json's minecraftServerFolders).
+ - `javaVersion` only have two versions: JDK 16, JDK 8
  - All Minecraft versions can run well in latest Java version, but Forge (idk Bukkit, Paper, Fabric) cannot.
  - If you are running in Linux System, you may change the mod value of the Java Runtime file.
 
