@@ -1,4 +1,6 @@
 /*
+ * BotMC - A Discord BOT can open your Minecraft Server
+ * https://botmc.cf
  *
  * Script By: 000hen(凝桑, 3ZH-Studio Network)
  *
