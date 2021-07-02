@@ -48,7 +48,7 @@ Here is the Running screenshot:
  - All Minecraft version under MC 1.17 are run well in Java 8, but Minecraft 1.17 (I think they will make all version above MC 1.17 run in latest Java version) CANNOT run (even Java 14/15, ~~so you need to change your Java version when you are running between the latest Minecraft and all versions under MC 1.17~~ I make the bot can change Java Runtime, but you need to change your `javaVersion` in config.json's minecraftServerFolders).
  - `javaVersion` only have two versions: JDK 16, JDK 8
  - All Minecraft versions can run well in latest Java version, but Forge (idk Bukkit, Paper, Fabric) cannot.
- - If you are running in Linux System, you may change the mod value of the Java Runtime file.
+ - If you are running in Linux System, you may change the permission value of the Java Runtime file.
 
 ## Enjoy
 
