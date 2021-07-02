@@ -51,6 +51,7 @@ function run() {
     });
 
     client.on("message", message => {
+        if (!message.member.roles.cache.array().some(r => config.rolesControl.indexOf(r.id) !== -1)) return false;
         var msgArray = message.content.split(" ");
         var perfix = msgArray.shift();
         var command = msgArray.shift();
