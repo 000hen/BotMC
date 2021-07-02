@@ -1,1 +1,17 @@
 theme: jekyll-theme-cayman
+author: 000hen
+
+navbar-links:
+  Resources:
+    - Download the Latest Release: "https://github.com/000hen/BotMC/releases/latest"
+  3ZH-Studio Network: "https://www.3zh-studio.com"
+
+social-network-links:
+  email: "someone@example.com"
+  github: 000hen
+  twitter: Hen000000hen
+  youtube: channel/UCsDjf2cKmrNfs3qaIhK3i8w
+  reddit: 000hen
+  twitch: 000hen
+
+url-pretty: "https://www.3zh-studio.com"
