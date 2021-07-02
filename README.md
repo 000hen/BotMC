@@ -15,6 +15,7 @@ A Discord BOT can open your Minecraft Servers.
  - [x] Easy to connect to your Minecraft Server
  - [ ] Easy to modify your Minecraft Server.
  - [ ] Allow some roles/permissions (Discord) to open your Minecraft Server.
+ - [ ] Support multi-language.
 
 ## How to use
 
