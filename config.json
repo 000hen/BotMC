@@ -6,6 +6,10 @@
     "authorImg": "https://3zh-studio.com/serverimg/hlogo.png",
     "authorSite": "https://www.3zh-studio.com/",
     "idleTimeout": 1800000,
+    "rolesControl": [
+        "<Role ID Here>",
+        "<Role ID #2 Here>"
+    ],
     "minecraftServerFolders": [
         {
             "name": "<Server Name>",
