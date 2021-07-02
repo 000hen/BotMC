@@ -12,8 +12,9 @@ A Discord BOT can open your Minecraft Servers.
  - [x] Your friends also can open your Minecraft Server (Require in the same Discord Guild with the bot).
  - [x] Auto shutdown when the server have nobody.
  - [ ] Easy to Use.
- - [x] Easy to connect to your Minecraft Server
+ - [x] Easy to connect to your Minecraft Server.
  - [ ] Easy to modify your Minecraft Server.
+ - [ ] Easy to run server as your own parameters.
  - [x] Allow some roles (Discord) to open your Minecraft Server.
  - [ ] Support multi-language.
 
