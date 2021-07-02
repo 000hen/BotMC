@@ -40,6 +40,9 @@ Here is the example:
 3. ~~Download the Java Runtime (`https://dl.botmc.cf/javas.zip`) and unzip to the root folder.~~ (It will auto download when you run it.)
 4. Run the BOT (`node main.js`).
 
+Here is the Running screenshot:
+![Example2](https://cdn.discordapp.com/attachments/655638858784047105/860378183601881088/unknown.png)
+
 # Issue
 
  - All Minecraft version under MC 1.17 are run well in Java 8, but Minecraft 1.17 (I think they will make all version above MC 1.17 run in latest Java version) CANNOT run (even Java 14/15, ~~so you need to change your Java version when you are running between the latest Minecraft and all versions under MC 1.17~~ I make the bot can change Java Runtime, but you need to change your `javaVersion` in config.json's minecraftServerFolders).
