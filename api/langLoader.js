@@ -6,7 +6,7 @@ class LangLoader {
      */
 
     getLang(langType, langParkName, langName) {
-        //var e = require(`../locals/en-US.json`);
+        var e = require(`../locals/en-US.json`);
         const lp = langParkName;
 
         function g(i, langParkName) {
