@@ -19,7 +19,7 @@ class downloadData {
                 const path = this.path;
                 var cntlength = 0;
                 if (!fs.existsSync("tmp")) fs.mkdirSync("tmp");
-                console.log("Start downloading Java Runtime. Wait a monent.");
+                console.log("Start downloading Java Runtime. Wait a moment.");
 
                 var bar = new progress.SingleBar({}, progress.Presets.legacy);
 

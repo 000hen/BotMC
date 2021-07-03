@@ -1,0 +1,51 @@
+{
+    "botmcLang": "en-US",
+    "botmcLangName": "English (United States)",
+    "langData": {
+        "common": {
+            "serverID": "Server ID",
+            "error": "Error",
+            "notStart": "Not Run Yet",
+            "started": "Running"
+        },
+        "helpPage": {
+            "title": "BotMC Help Page",
+            "description": "This is a help page.",
+            "prefixDesc": "This is bot's prefix",
+            "commandDesc1": "Start server",
+            "commandDesc2": "Stop server",
+            "commandDesc3": "Servers list"
+        },
+        "serverRun": {
+            "start": "Starting Server %serverName%",
+            "close": "Stoping Server %serverName%",
+            "startCompleteTit": "Server %serverName% Started Completed!",
+            "startCompleteDesc": "You Can Join %serverName% Now",
+            "output": "Server %serverName% Output",
+            "idleShutdownTit": "Server %serverName% Stopped",
+            "idleShutdownDesc": "For reduce server's efficacy, server will stop in %idleTimeout% minutes when server have nobody.",
+            "serverManualCloseTit": "Server %serverName% Shutdown",
+            "serverManualCloseDesc": "Stopped by manual"
+        },
+        "serverList": {
+            "title": "BotMC Servers List",
+            "description": "This is Server %serverName%'s Informations",
+            "info1": "Server Status",
+            "info2": "Server Name",
+            "info3": "Server ID",
+            "info4": "Server Verion",
+            "info5": "Server ROOT Folder",
+            "info6": "Server Run File Name"
+        },
+        "errorsTitle": {
+            "cannotFindServer": "Cannot Find Server",
+            "serverStarted": "Server had Started",
+            "serverClosed": "Server had Stopped"
+        },
+        "errorsDesc": {
+            "cannoFindServer": "We cannot found this server ID.",
+            "serverStarted": "This server has already started.",
+            "serverClosed": "This server has already stopped."
+        }
+    }
+}

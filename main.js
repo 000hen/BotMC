@@ -15,6 +15,9 @@ const os = require("os");
 const path = require("path");
 const fs = require("fs");
 const dwnd = require("./api/download.js");
+const { LangLoader } = require("./api/langLoader.js");
+
+const lang = config.lang;
 
 const platform = os.platform();
 var dwndone = false;
@@ -60,16 +63,16 @@ function run() {
         if (command === "help") {
             var embed = new Discord.MessageEmbed()
                 .setColor('#58b500')
-                .setTitle('Discord BOT for Minecraft Startup Help')
+                .setTitle(LangLoader.getLang(lang, "helpPage", "title"))
                 .setURL(config.authorSite)
                 .setAuthor(config.authorName, config.authorImg, config.authorSite)
-                .setDescription('這是幫助頁面')
+                .setDescription(LangLoader.getLang(lang, "helpPage", "description"))
                 .addFields(
-                    { name: config.botPrefix, value: '是指令前輟!!' },
+                    { name: config.botPrefix, value: LangLoader.getLang(lang, "helpPage", "prefixDesc") },
                     { name: '\u200B', value: '\u200B' },
-                    { name: `${config.botPrefix} start (伺服器ID)`, value: '啟動伺服器', inline: true },
-                    { name: `${config.botPrefix} stop (伺服器ID)`, value: '關閉伺服器', inline: true },
-                    { name: `${config.botPrefix} list`, value: '伺服器列表', inline: true }
+                    { name: `${config.botPrefix} start (${LangLoader.getLang(lang, "common", "serverID")})`, value: LangLoader.getLang(lang, "helpPage", "commandDesc1"), inline: true },
+                    { name: `${config.botPrefix} stop (${LangLoader.getLang(lang, "common", "serverID")})`, value: LangLoader.getLang(lang, "helpPage", "commandDesc2"), inline: true },
+                    { name: `${config.botPrefix} list`, value: LangLoader.getLang(lang, "helpPage", "commandDesc3"), inline: true }
                 )
                 .setTimestamp()
                 .setFooter(config.author, config.authorImg);
@@ -81,10 +84,10 @@ function run() {
             if (config.minecraftServerFolders.find(e => e.id === serverId) === undefined) {
                 var embed = new Discord.MessageEmbed()
                     .setColor('#ff3b3b')
-                    .setTitle('錯誤 - 找不到伺服器')
+                    .setTitle(`${LangLoader.getLang(lang, "common", "error")} - ${LangLoader.getLang(lang, "errorsTitle", "cannotFindServer")}`)
                     .setURL(config.authorSite)
                     .setAuthor(config.authorName, config.authorImg, config.authorSite)
-                    .setDescription('我們找不到您所希望的伺服器ID')
+                    .setDescription(LangLoader.getLang(lang, "errorsDesc", "cannoFindServer"))
                     .setTimestamp()
                     .setFooter(config.author, config.authorImg);
                 message.channel.send(embed);
@@ -94,10 +97,10 @@ function run() {
             if (servers.find(e => e.id === serverId) !== undefined) {
                 var embed = new Discord.MessageEmbed()
                     .setColor('#ff3b3b')
-                    .setTitle('錯誤 - 已啟動伺服器')
+                    .setTitle(`${LangLoader.getLang(lang, "common", "error")} - ${LangLoader.getLang(lang, "errorsTitle", "serverStarted")}`)
                     .setURL(config.authorSite)
                     .setAuthor(config.authorName, config.authorImg, config.authorSite)
-                    .setDescription('這台伺服器已啟動了')
+                    .setDescription(LangLoader.getLang(lang, "errorsDesc", "serverStarted"))
                     .setTimestamp()
                     .setFooter(config.author, config.authorImg);
                 message.channel.send(embed);
@@ -133,7 +136,7 @@ function run() {
 
             var embed = new Discord.MessageEmbed()
                 .setColor("#79de31")
-                .setTitle(`伺服器 ${serverinfo.name} 啟動了`)
+                .setTitle(LangLoader.replace(LangLoader.getLang(lang, "serverRun", "start"), { serverName: serverinfo.name }))
                 .setURL(config.authorSite)
                 .setAuthor(config.authorName, config.authorImg, config.authorSite)
                 .setTimestamp()
@@ -147,7 +150,7 @@ function run() {
                 var output = Buffer.from(data).toString();
                 var embed = new Discord.MessageEmbed()
                     .setColor("#79de31")
-                    .setTitle(`伺服器 ${serverinfo.name} 輸出`)
+                    .setTitle(LangLoader.replace(LangLoader.getLang(lang, "serverRun", "output"), { serverName: serverinfo.name }))
                     .setURL(config.authorSite)
                     .setAuthor(config.authorName, config.authorImg, config.authorSite)
                     .setDescription(output)
@@ -157,10 +160,10 @@ function run() {
                 if (output.match(/\[[0-9]{2}:[0-9]{2}:[0-9]{2}\] \[Server thread\/INFO\]\w*: There are 0 of a max of [0-9]* players online:\w*/gm)) {
                     var embed = new Discord.MessageEmbed()
                         .setColor('#ff3b3b')
-                        .setTitle(`伺服器 ${serverinfo.name} 關閉`)
+                        .setTitle(LangLoader.replace(LangLoader.getLang(lang, "serverRun", "idleShutdownTit"), { serverName: serverinfo.name }))
                         .setURL(config.authorSite)
                         .setAuthor(config.authorName, config.authorImg, config.authorSite)
-                        .setDescription(`為節省伺服器效能, 伺服器在無人 ${config.idleTimeout / 1000 / 60} 分鐘後即自動關閉`)
+                        .setDescription(LangLoader.replace(LangLoader.getLang(lang, "serverRun", "idleShutdownDesc"), { idleTimeout: (config.idleTimeout / 1000 / 60) }))
                         .setTimestamp()
                         .setFooter(config.author, config.authorImg);
                     message.channel.send(embed);
@@ -173,10 +176,10 @@ function run() {
                 if (output.match(/\[[0-9]{2}:[0-9]{2}:[0-9]{2}\] \[Server thread\/INFO\]\w*: Done \([0-9]*\.[0-9]*s\)! For help, type "help"/gm)) {
                     var embed = new Discord.MessageEmbed()
                         .setColor("#79de31")
-                        .setTitle(`伺服器 ${serverinfo.name} 啟動成功`)
+                        .setTitle(LangLoader.replace(LangLoader.getLang(lang, "serverRun", "startCompleteTit"), { serverName: serverinfo.name }))
                         .setURL(config.authorSite)
                         .setAuthor(config.authorName, config.authorImg, config.authorSite)
-                        .setDescription(`現在你們可以進入 ${serverinfo.name} 暢玩了!`)
+                        .setDescription(LangLoader.replace(LangLoader.getLang(lang, "serverRun", "startCompleteDesc"), { serverName: serverinfo.name }))
                         .setTimestamp()
                         .setFooter(config.author, config.authorImg);
                     message.channel.send(embed);
@@ -184,11 +187,11 @@ function run() {
                 chkusr = false;
             });
             server.on("close", () => {
-                console.log(`If you cannot run the server, you can try "chmod 777 javas/*" on project's root folder in linux system.`);
+                //console.log(`If you cannot run the server, you can try "chmod 777 javas/*" on project's root folder in linux system.`);
                 rmServer(serverId);
                 var embed = new Discord.MessageEmbed()
                     .setColor("#79de31")
-                    .setTitle(`伺服器 ${serverinfo.name} 關閉了`)
+                    .setTitle(LangLoader.replace(LangLoader.getLang(lang, "serverRun", "close"), { serverName: serverinfo.name }))
                     .setURL(config.authorSite)
                     .setAuthor(config.authorName, config.authorImg, config.authorSite)
                     .setTimestamp()
@@ -205,12 +208,12 @@ function run() {
             var serverId = msgArray.shift();
             var serverinfo = config.minecraftServerFolders.find(e => e.id === serverId);
             if (serverinfo === undefined) {
-                var embed = new Discord.MessageEmbed()
+                 var embed = new Discord.MessageEmbed()
                     .setColor('#ff3b3b')
-                    .setTitle('錯誤 - 找不到伺服器')
+                    .setTitle(`${LangLoader.getLang(lang, "common", "error")} - ${LangLoader.getLang(lang, "errorsTitle", "cannotFindServer")}`)
                     .setURL(config.authorSite)
                     .setAuthor(config.authorName, config.authorImg, config.authorSite)
-                    .setDescription('我們找不到您所希望的伺服器ID')
+                    .setDescription(LangLoader.getLang(lang, "errorsDesc", "cannoFindServer"))
                     .setTimestamp()
                     .setFooter(config.author, config.authorImg);
                 message.channel.send(embed);
@@ -220,10 +223,10 @@ function run() {
             if (servers.find(e => e.id === serverId) === undefined) {
                 var embed = new Discord.MessageEmbed()
                     .setColor('#ff3b3b')
-                    .setTitle('錯誤 - 伺服器已關閉')
+                    .setTitle(`${LangLoader.getLang(lang, "common", "error")} - ${LangLoader.getLang(lang, "errorsTitle", "serverClosed")}`)
                     .setURL(config.authorSite)
                     .setAuthor(config.authorName, config.authorImg, config.authorSite)
-                    .setDescription('這台伺服器已關閉了')
+                    .setDescription(LangLoader.getLang(lang, "errorsDesc", "serverClosed"))
                     .setTimestamp()
                     .setFooter(config.author, config.authorImg);
                 message.channel.send(embed);
@@ -235,10 +238,10 @@ function run() {
 
             var embed = new Discord.MessageEmbed()
                 .setColor('#ff3b3b')
-                .setTitle(`伺服器 ${serverinfo.name} 關閉`)
+                .setTitle(LangLoader.replace(LangLoader.getLang(lang, "serverRun", "serverManualCloseTit"), { serverName: serverinfo.name }))
                 .setURL(config.authorSite)
                 .setAuthor(config.authorName, config.authorImg, config.authorSite)
-                .setDescription('已手動關閉伺服器')
+                .setDescription(LangLoader.getLang(lang, "serverRun", "serverManualCloseDesc"))
                 .setTimestamp()
                 .setFooter(config.author, config.authorImg);
             message.channel.send(embed);
@@ -248,21 +251,21 @@ function run() {
             var serversinfo = config.minecraftServerFolders;
             for (var serverinfo of serversinfo) {
                 var serverdata = servers.find(e => e.id === serverinfo.id);
-                serverdata === undefined ? serverdata = "尚未啟動" : serverdata = "已啟動";
+                serverdata === undefined ? serverdata = LangLoader.getLang(lang, "common", "notStart") : serverdata = LangLoader.getLang(lang, "common", "started");
                 var embed = new Discord.MessageEmbed()
                     .setColor('#58b500')
-                    .setTitle('Discord BOT for Minecraft Startup Servers List')
+                    .setTitle(LangLoader.getLang(lang, "serverList", "title"))
                     .setURL(config.authorSite)
                     .setAuthor(config.authorName, config.authorImg, config.authorSite)
-                    .setDescription(`這是伺服器 ${serverinfo.name} 的資訊`)
+                    .setDescription(LangLoader.replace(LangLoader.getLang(lang, "serverList", "description"), { serverName: serverinfo.name }))
                     .addFields(
-                        { name: '伺服器狀態', value: serverdata },
+                        { name: LangLoader.getLang(lang, "serverList", "info1"), value: serverdata },
                         { name: '\u200B', value: '\u200B' },
-                        { name: '伺服器名稱', value: serverinfo.name, inline: true },
-                        { name: '伺服器ID', value: serverinfo.id, inline: true },
-                        { name: "伺服器版本", value: serverinfo.version, inline: true },
-                        { name: "伺服器ROOT資料夾", value: serverinfo.folder, inline: true },
-                        { name: '伺服器檔案名稱', value: serverinfo.serverFileName, inline: true },
+                        { name: LangLoader.getLang(lang, "serverList", "info2"), value: serverinfo.name, inline: true },
+                        { name: LangLoader.getLang(lang, "serverList", "info3"), value: serverinfo.id, inline: true },
+                        { name: LangLoader.getLang(lang, "serverList", "info4"), value: serverinfo.version, inline: true },
+                        { name: LangLoader.getLang(lang, "serverList", "info5"), value: serverinfo.folder, inline: true },
+                        { name: LangLoader.getLang(lang, "serverList", "info6"), value: serverinfo.serverFileName, inline: true },
                     )
                     .setTimestamp()
                     .setFooter(config.author, config.authorImg);

@@ -1,0 +1,51 @@
+{
+    "botmcLang": "zh-TW",
+    "botmcLangName": "漢語 (台灣)",
+    "langData": {
+        "common": {
+            "serverID": "伺服器ID",
+            "error": "錯誤",
+            "notStart": "尚未啟動",
+            "started": "已啟動"
+        },
+        "helpPage": {
+            "title": "BotMC 幫助頁面",
+            "description": "這是幫助頁面",
+            "prefixDesc": "是指令前輟!!",
+            "commandDesc1": "啟動伺服器",
+            "commandDesc2": "關閉伺服器",
+            "commandDesc3": "伺服器列表"
+        },
+        "serverRun": {
+            "start": "伺服器 %serverName% 啟動了",
+            "close": "伺服器 %serverName% 關閉了",
+            "startCompleteTit": "伺服器 %serverName% 啟動成功",
+            "startCompleteDesc": "現在你們可以進入 %serverName% 暢玩了!",
+            "output": "伺服器 %serverName% 輸出",
+            "idleShutdownTit": "伺服器 %serverName% 關閉",
+            "idleShutdownDesc": "為節省伺服器效能, 伺服器在無人 %idleTimeout% 分鐘後即自動關閉",
+            "serverManualCloseTit": "伺服器 %serverName% 關閉",
+            "serverManualCloseDesc": "已手動關閉伺服器"
+        },
+        "serverList": {
+            "title": "BotMC 伺服器列表",
+            "description": "這是伺服器 %serverName% 的資訊",
+            "info1": "伺服器狀態",
+            "info2": "伺服器名稱",
+            "info3": "伺服器ID",
+            "info4": "伺服器版本",
+            "info5": "伺服器ROOT資料夾",
+            "info6": "伺服器檔案名稱"
+        },
+        "errorsTitle": {
+            "cannotFindServer": "找不到伺服器",
+            "serverStarted": "已啟動伺服器",
+            "serverClosed": "伺服器已關閉"
+        },
+        "errorsDesc": {
+            "cannoFindServer": "我們找不到您所希望的伺服器ID",
+            "serverStarted": "這台伺服器已啟動了",
+            "serverClosed": "這台伺服器已關閉了"
+        }
+    }
+}

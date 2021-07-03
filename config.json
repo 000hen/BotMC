@@ -10,6 +10,7 @@
         "<Role ID Here>",
         "<Role ID #2 Here>"
     ],
+    "lang": "en-US",
     "minecraftServerFolders": [
         {
             "name": "<Server Name>",
