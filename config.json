@@ -18,7 +18,8 @@
             "version": "<Server Version>",
             "javaVersion": 16,
             "folder": "<Server Folder>",
-            "serverFileName": "Server Filename.jar"
+            "serverFileName": "Server Filename.jar",
+            "runArgs": "<Server Run Args Here>"
         }
     ]
 }
