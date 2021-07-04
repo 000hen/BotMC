@@ -22,6 +22,8 @@ A Discord BOT can open your Minecraft Servers.
 
 ***Node JS 12 or above is required***
 
+Download the Releases Here: <https://github.com/000hen/BotMC/releases/latest>
+
 0. Use npm to install all models (`npm install`).
 1. Typing your Discord BOT Authorization Token into the file "`config.json`"'s discordToken
 2. Typing your Minecraft Servers' Information into "minecraftServerFolders" Like: 
