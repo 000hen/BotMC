@@ -132,7 +132,8 @@ function run() {
             }
 
             //servers.push({ id: serverId, server: (spawn(`"${javaRuntime}"`, [`-jar`, `"${serverinfo.folder}/${serverinfo.serverFileName}"`, `nogui`, { cwd: serverinfo.folder })) }); //==>This is not working for me.
-            servers.push({ id: serverId, server: (exec(`${javaRuntime} -jar "${serverinfo.folder}/${serverinfo.serverFileName}" nogui`, { cwd: serverinfo.folder })) });
+            var runArgs = serverinfo.runArgs || "";
+            servers.push({ id: serverId, server: (exec(`${javaRuntime} -jar "${serverinfo.folder}/${serverinfo.serverFileName}" nogui ${runArgs}`, { cwd: serverinfo.folder })) });
 
             var embed = new Discord.MessageEmbed()
                 .setColor("#79de31")
