@@ -12,7 +12,6 @@ const client = new Discord.Client();
 const config = require("./config.json");
 const { spawn, exec } = require("child_process");
 const os = require("os");
-const path = require("path");
 const fs = require("fs");
 const dwnd = require("./api/download.js");
 const { LangLoader } = require("./api/langLoader.js");
@@ -71,8 +70,9 @@ function run() {
                     { name: config.botPrefix, value: LangLoader.getLang(lang, "helpPage", "prefixDesc") },
                     { name: '\u200B', value: '\u200B' },
                     { name: `${config.botPrefix} start (${LangLoader.getLang(lang, "common", "serverID")})`, value: LangLoader.getLang(lang, "helpPage", "commandDesc1"), inline: true },
-                    { name: `${config.botPrefix} stop (${LangLoader.getLang(lang, "common", "serverID")})`, value: LangLoader.getLang(lang, "helpPage", "commandDesc2"), inline: true },
-                    { name: `${config.botPrefix} list`, value: LangLoader.getLang(lang, "helpPage", "commandDesc3"), inline: true }
+                    { name: `${config.botPrefix} command (${LangLoader.getLang(lang, "common", "serverID")})`, value: LangLoader.getLang(lang, "helpPage", "commandDesc2"), inline: true },
+                    { name: `${config.botPrefix} stop (${LangLoader.getLang(lang, "common", "serverID")})`, value: LangLoader.getLang(lang, "helpPage", "commandDesc3"), inline: true },
+                    { name: `${config.botPrefix} list`, value: LangLoader.getLang(lang, "helpPage", "commandDesc4"), inline: true }
                 )
                 .setTimestamp()
                 .setFooter(config.author, config.authorImg);
@@ -272,6 +272,50 @@ function run() {
                     .setFooter(config.author, config.authorImg);
                 message.channel.send(embed);
             }
+        }
+        if (command === "command") {
+            var serverId = msgArray.shift();
+            var runCommand = msgArray.join(" ");
+            var serverinfo = config.minecraftServerFolders.find(e => e.id === serverId);
+            if (serverinfo === undefined) {
+                 var embed = new Discord.MessageEmbed()
+                    .setColor('#ff3b3b')
+                    .setTitle(`${LangLoader.getLang(lang, "common", "error")} - ${LangLoader.getLang(lang, "errorsTitle", "cannotFindServer")}`)
+                    .setURL(config.authorSite)
+                    .setAuthor(config.authorName, config.authorImg, config.authorSite)
+                    .setDescription(LangLoader.getLang(lang, "errorsDesc", "cannoFindServer"))
+                    .setTimestamp()
+                    .setFooter(config.author, config.authorImg);
+                message.channel.send(embed);
+                return;
+            }
+
+            if (servers.find(e => e.id === serverId) === undefined) {
+                var embed = new Discord.MessageEmbed()
+                    .setColor('#ff3b3b')
+                    .setTitle(`${LangLoader.getLang(lang, "common", "error")} - ${LangLoader.getLang(lang, "errorsTitle", "serverClosed")}`)
+                    .setURL(config.authorSite)
+                    .setAuthor(config.authorName, config.authorImg, config.authorSite)
+                    .setDescription(LangLoader.getLang(lang, "errorsDesc", "serverClosed"))
+                    .setTimestamp()
+                    .setFooter(config.author, config.authorImg);
+                message.channel.send(embed);
+                return;
+            }
+
+            var server = servers.find(e => e.id === serverId).server;
+            server.stdin.write(`${runCommand}\n`);
+
+            var embed = new Discord.MessageEmbed()
+                .setColor('#ff3b3b')
+                .setTitle(LangLoader.replace(LangLoader.getLang(lang, "serverRun", "runCommand"), { serverName: serverinfo.name }))
+                .setURL(config.authorSite)
+                .setAuthor(config.authorName, config.authorImg, config.authorSite)
+                .setDescription(`\`${runCommand}\``)
+                .setTimestamp()
+                .setFooter(config.author, config.authorImg);
+            message.channel.send(embed);
+            return true;
         }
     })
 }
