@@ -13,8 +13,9 @@
             "description": "這是幫助頁面",
             "prefixDesc": "是指令前輟!!",
             "commandDesc1": "啟動伺服器",
-            "commandDesc2": "關閉伺服器",
-            "commandDesc3": "伺服器列表"
+            "commandDesc2": "在伺服器裡輸入指令",
+            "commandDesc3": "關閉伺服器",
+            "commandDesc4": "伺服器列表"
         },
         "serverRun": {
             "start": "伺服器 %serverName% 啟動了",
@@ -25,7 +26,8 @@
             "idleShutdownTit": "伺服器 %serverName% 關閉",
             "idleShutdownDesc": "為節省伺服器效能, 伺服器在無人 %idleTimeout% 分鐘後即自動關閉",
             "serverManualCloseTit": "伺服器 %serverName% 關閉",
-            "serverManualCloseDesc": "已手動關閉伺服器"
+            "serverManualCloseDesc": "已手動關閉伺服器",
+            "runCommand": "已於 %serverName% 輸入指令"
         },
         "serverList": {
             "title": "BotMC 伺服器列表",
