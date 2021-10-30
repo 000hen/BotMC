@@ -13,8 +13,9 @@
             "description": "This is a help page.",
             "prefixDesc": "This is bot's prefix",
             "commandDesc1": "Start server",
-            "commandDesc2": "Stop server",
-            "commandDesc3": "Servers list"
+            "commandDesc2": "Typing command into server",
+            "commandDesc3": "Stop server",
+            "commandDesc4": "Servers list"
         },
         "serverRun": {
             "start": "Starting Server %serverName%",
@@ -25,7 +26,8 @@
             "idleShutdownTit": "Server %serverName% Stopped",
             "idleShutdownDesc": "For reduce server's efficacy, server will stop in %idleTimeout% minutes when server have nobody.",
             "serverManualCloseTit": "Server %serverName% Shutdown",
-            "serverManualCloseDesc": "Stopped by manual"
+            "serverManualCloseDesc": "Stopped by manual",
+            "runCommand": "Typed command into %serverName%"
         },
         "serverList": {
             "title": "BotMC Servers List",
