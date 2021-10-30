@@ -30,11 +30,12 @@ Download the Releases Here: <https://github.com/000hen/BotMC/releases/latest>
 ```json
 {
   "name": "Name of Server",
-  "id": "this-is-id",
+  "id": "this.is.id",
   "version": "Version of Server",
-  "javaVersion": "16 //Optional, can be number or string, should be 16 or 8",
+  "javaVersion": "16 // Optional, can be number or string, should be 16 or 8",
   "folder": "/path/to/your/server/folder",
-  "serverFileName": "server.jar"
+  "serverFileName": "server.jar",
+  "runArgs": "--Server --Run --Args --Here // Optional"
 }
 ```
 Here is the example:
