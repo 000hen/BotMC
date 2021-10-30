@@ -48,6 +48,9 @@ Here is the example:
 Here is the Running screenshot:
 ![Example2](https://cdn.discordapp.com/attachments/655638858784047105/860378183601881088/unknown.png)
 
+Run commands in Discord:
+![Example3](https://cdn.discordapp.com/attachments/698551378745884835/903946084756373525/unknown.png)
+
 # Issue
 
  - All Minecraft version under MC 1.17 are run well in Java 8, but Minecraft 1.17 (I think they will make all version above MC 1.17 run in latest Java version) CANNOT run (even Java 14/15, ~~so you need to change your Java version when you are running between the latest Minecraft and all versions under MC 1.17~~ I make the bot can change Java Runtime, but you need to change your `javaVersion` in config.json's minecraftServerFolders).
