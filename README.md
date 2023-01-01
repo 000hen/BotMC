@@ -1,5 +1,8 @@
 # BotMC
 
+> **Warning**  
+> BotMC will NOT continue supporting. If you want to use this Discord bot, you may found the bot doesn't work.
+
 A Discord BOT can open your Minecraft Servers.
 
 ## The Video
